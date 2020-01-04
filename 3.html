@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <p>Users</p>
+        <ul>
+            <li v-for='(user, index) in users' :key='index'>
+                {{index+1}} - {{user.name}} - {{user.email}} - {{user.age}}
+            </li>
+        </ul>
+        <button @click='getContent'>Submit</button>
+    </div>
+
+    <script>
+        let app = new Vue({ 
+            el: '#app',
+            data: {
+                title: `Data`,
+                user: {
+                    name: 'Jack',
+                    email: 'info@code.com'
+                },
+                users: [
+                    {
+                        name: 'jack', email: 'jack@code.com', age: 23
+                    },
+                    {
+                        name: 'alex', email: 'alex@code.com', age: 46
+                    },
+                    {
+                        name: 'pidr', email: 'pidr@code.com', age: 28
+                    },
+                ]
+            },
+            methods: {
+                getContent () {
+                    console.log(this.user, this.users);
+                }
+            },
+        })
+    </script>
+</body>
+</html>
